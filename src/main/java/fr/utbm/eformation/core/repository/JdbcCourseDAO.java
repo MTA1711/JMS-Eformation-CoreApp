@@ -86,7 +86,11 @@ public class JdbcCourseDAO implements DAOInterface<Course>{
         return r;
     }
 
-    
+    /**
+    * get information about object with id in parameter
+    * @param id
+    * @return Course
+    */
     public Course find(String id) {
         Course c = null;
         try {
@@ -119,7 +123,12 @@ public class JdbcCourseDAO implements DAOInterface<Course>{
     public Course find(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public  List<Course> getListLocation(){
+    /**
+    * get list of all courses in the catalogue
+    * 
+    * @return List
+    */
+    public  List<Course> getListCourse(){
         List<Course> listCourse = null;
         try {
             this.connexion = DatabaseConnect.getInstance();

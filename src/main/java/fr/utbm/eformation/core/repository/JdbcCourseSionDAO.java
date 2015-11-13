@@ -288,6 +288,12 @@ public class JdbcCourseSionDAO implements DAOInterface<CourseSession>{
             i++;
         }
         
+        if (date != null){
+            s += " cs.START_DATE <= ? and ? <= cs.END_DATE ";
+            d = true;
+            i++;
+        }
+        
         if ( i != 0){
             query += " WHERE "+s ;
         }
@@ -300,6 +306,11 @@ public class JdbcCourseSionDAO implements DAOInterface<CourseSession>{
         if(l){
             stmt.setString(k++, location.getCity());
         }
+        if(d){
+            stmt.setDate(k++, new java.sql.Date(date.getTime()));
+            stmt.setDate(k++, new java.sql.Date(date.getTime()));
+        }
+        //System.out.println(stmt);
         return stmt;
     }
 }
