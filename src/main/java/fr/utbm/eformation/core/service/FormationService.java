@@ -38,8 +38,8 @@ public class FormationService {
 
     }
     /**
-     * Get all sessions courses 
-     * @return 
+     * Get all sessions courses available
+     * @return List of session
      */
     public List getallFormations(){
             JdbcCourseSionDAO jcd = new JdbcCourseSionDAO();
