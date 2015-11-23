@@ -2,12 +2,17 @@ package fr.utbm.eformation.core.service;
 
 import fr.utbm.eformation.core.entity.Location;
 import fr.utbm.eformation.core.repository.JdbcLocationDAO;
+import fr.utbm.eformation.core.repository.LocationInterfaceDAO;
+import fr.utbm.eformation.core.util.Factory;
 import java.util.List;
 
-//CRUD sur la table location
+/**
+ * CRUD operations for a Location
+ * @author java
+ */
 public class LocationService {
         
-    private JdbcLocationDAO jcd = new JdbcLocationDAO();
+    private LocationInterfaceDAO jcd = Factory.getLocationDAO();
     
     /**
      * add a new location
@@ -15,9 +20,8 @@ public class LocationService {
      * @return id of the new location
      */
     public int addLocation(Location l){
-
-            int k= jcd.insert(l);
-            return k;
+        int k= jcd.insert(l);
+        return k;
     }
     
     /**
@@ -25,11 +29,9 @@ public class LocationService {
      * @param l
      * @return number of locations which are updated
      */
-
     public int updateLocation(Location l){
-
-            int k= jcd.update(l);
-            return k;
+        int k= jcd.update(l);
+        return k;
     }
     
     /**
@@ -37,11 +39,9 @@ public class LocationService {
      * @param l
      * @return number of location which are deleted
      */
-
     public int deleteLocation(Location l){
-
-            int k= jcd.delete(l);
-            return k;
+        int k= jcd.delete(l);
+        return k;
     }
     
     /**
@@ -49,8 +49,7 @@ public class LocationService {
      * @return List of locations
      */
     public List getListLocations(){
-
-            return jcd.getListLocation();
+        return jcd.getListLocation();
     }
     
     /**
@@ -59,8 +58,7 @@ public class LocationService {
      * @return Location
      */
     public Location getLocation(int id){
-
-            return jcd.find(id);
+        return jcd.find(id);
     }
 
 }

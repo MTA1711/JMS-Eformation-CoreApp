@@ -1,4 +1,4 @@
-package fr.utbm.eformation.core.repository;
+package fr.utbm.eformation.core.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

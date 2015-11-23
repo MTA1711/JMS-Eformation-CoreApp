@@ -6,12 +6,19 @@ import java.sql.Date;
 
 import fr.utbm.eformation.core.entity.Client;
 import fr.utbm.eformation.core.entity.Location;
-import fr.utbm.eformation.core.repository.JdbcClientDAO;
-import fr.utbm.eformation.core.repository.JdbcCourseSionDAO;
+import fr.utbm.eformation.core.repository.ClientInterfaceDAO;
+import fr.utbm.eformation.core.repository.CourseSessionInterfaceDAO;
+import fr.utbm.eformation.core.util.Factory;
 import java.util.List;
-//service permettant de filtrer les formations par date, par mot clé et par lieu
-public class FormationService {
 
+/**
+ * Service allowing to filter the courses session
+ * @author java
+ */
+
+public class FormationService {
+    private CourseSessionInterfaceDAO jcd = Factory.getCourseSessionDAO();
+    private ClientInterfaceDAO jcl = Factory.getClientDAO();
     /**
      * Searching formations regarding to information about title, date and location
      * @param mc
@@ -19,10 +26,8 @@ public class FormationService {
      * @param l
      * @return List of formation
      */
-    public List searchFormations(String mc, Date d, Location l ){
-
-            JdbcCourseSionDAO jcd = new JdbcCourseSionDAO();
-            return jcd.findSessionByInfos(mc, d, l);
+    public List searchFormations(String mc, Date d, Location l ){         
+        return jcd.findSessionByInfos(mc, d, l);
     }
     
     /**
@@ -31,19 +36,15 @@ public class FormationService {
      * @return 
      */
     public int inscription(Client c){
-
-            JdbcClientDAO jcl = new JdbcClientDAO();
-            int k= jcl.insert(c);
-            return k;
-
+        int k= jcl.insert(c);
+        return k;
     }
     /**
      * Get all sessions courses available
      * @return List of session
      */
     public List getallFormations(){
-            JdbcCourseSionDAO jcd = new JdbcCourseSionDAO();
-            return jcd.getListSession();
+        return jcd.getListSession();
 
     }
 }

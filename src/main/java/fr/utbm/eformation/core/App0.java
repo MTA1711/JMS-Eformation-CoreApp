@@ -6,7 +6,7 @@ import fr.utbm.eformation.core.entity.CourseSession;
 import fr.utbm.eformation.core.entity.Location;
 import fr.utbm.eformation.core.repository.JdbcClientDAO;
 import fr.utbm.eformation.core.repository.JdbcCourseDAO;
-import fr.utbm.eformation.core.repository.JdbcCourseSionDAO;
+import fr.utbm.eformation.core.repository.JdbcCourseSessionDAO;
 import fr.utbm.eformation.core.repository.JdbcLocationDAO;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +20,7 @@ public class App0 {
         CourseSession cs = new CourseSession();
         JdbcLocationDAO bdl = new JdbcLocationDAO();
         JdbcCourseDAO bdc = new JdbcCourseDAO();
-        JdbcCourseSionDAO bdcs = new JdbcCourseSionDAO();
+        JdbcCourseSessionDAO bdcs = new JdbcCourseSessionDAO();
         JdbcClientDAO bdcc = new JdbcClientDAO();
         
         CourseSession cs2 = bdcs.find(3);

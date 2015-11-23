@@ -1,5 +1,6 @@
 package fr.utbm.eformation.core.repository;
 
+import fr.utbm.eformation.core.util.DatabaseConnect;
 import fr.utbm.eformation.core.entity.Client;
 import fr.utbm.eformation.core.entity.Course;
 import fr.utbm.eformation.core.entity.CourseSession;
@@ -15,10 +16,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * DAO class for the Client. It uses JDBC implementation
  * @author java
  */
-public class JdbcClientDAO implements DAOInterface<Client>{
+public class JdbcClientDAO implements ClientInterfaceDAO{
     private Connection connexion;
 
     @Override
@@ -156,6 +157,7 @@ public class JdbcClientDAO implements DAOInterface<Client>{
         return c;
     }
     
+    @Override
     public  List<Client> getListClient(){
         List<Client> listClient = null;
         try {

@@ -1,5 +1,6 @@
 package fr.utbm.eformation.core.repository;
 
+import fr.utbm.eformation.core.util.DatabaseConnect;
 import fr.utbm.eformation.core.entity.Location;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,10 +13,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * DAO class for the Location. It uses JDBC implementation
  * @author java
  */
-public class JdbcLocationDAO implements DAOInterface<Location>{
+public class JdbcLocationDAO implements LocationInterfaceDAO{
     private Connection connexion ;
     @Override
     public int insert(Location obj) {
@@ -118,6 +119,7 @@ public class JdbcLocationDAO implements DAOInterface<Location>{
         return l;
     }
     
+    @Override
     public  List<Location> getListLocation(){
         List<Location> listLocation = null;
         try {

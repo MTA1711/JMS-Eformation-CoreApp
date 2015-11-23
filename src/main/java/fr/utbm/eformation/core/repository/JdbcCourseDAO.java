@@ -1,5 +1,6 @@
 package fr.utbm.eformation.core.repository;
 
+import fr.utbm.eformation.core.util.DatabaseConnect;
 import fr.utbm.eformation.core.entity.Course;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,10 +13,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * DAO class for the Course. It uses JDBC implementation
  * @author java
  */
-public class JdbcCourseDAO implements DAOInterface<Course>{
+public class JdbcCourseDAO implements CourseInterfaceDAO{
     private Connection connexion ;
     
     @Override
@@ -86,11 +87,8 @@ public class JdbcCourseDAO implements DAOInterface<Course>{
         return r;
     }
 
-    /**
-    * get information about object with id in parameter
-    * @param id
-    * @return Course
-    */
+    
+    @Override
     public Course find(String id) {
         Course c = null;
         try {
@@ -123,11 +121,8 @@ public class JdbcCourseDAO implements DAOInterface<Course>{
     public Course find(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    /**
-    * get list of all courses in the catalogue
-    * 
-    * @return List
-    */
+    
+    @Override
     public  List<Course> getListCourse(){
         List<Course> listCourse = null;
         try {

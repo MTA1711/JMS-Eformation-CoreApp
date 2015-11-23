@@ -1,5 +1,6 @@
 package fr.utbm.eformation.core.repository;
 
+import fr.utbm.eformation.core.util.DatabaseConnect;
 import fr.utbm.eformation.core.entity.Client;
 import fr.utbm.eformation.core.entity.Course;
 import fr.utbm.eformation.core.entity.CourseSession;
@@ -16,10 +17,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * DAO class for the Course session. It uses JDBC implementation
  * @author java
  */
-public class JdbcCourseSionDAO implements DAOInterface<CourseSession>{
+public class JdbcCourseSessionDAO implements CourseSessionInterfaceDAO{
     private Connection connexion;
 
     @Override
@@ -143,6 +144,7 @@ public class JdbcCourseSionDAO implements DAOInterface<CourseSession>{
         return cs;
     }
     
+    @Override
     public List<CourseSession> getListSession(){
         List<CourseSession> ls = new LinkedList<>();
         try {
@@ -187,6 +189,7 @@ public class JdbcCourseSionDAO implements DAOInterface<CourseSession>{
         return ls;
     }
     
+    @Override
     public List<Client> getClientBySession(CourseSession cc){
         List<Client> lc = new LinkedList<>();
         try {
@@ -220,6 +223,7 @@ public class JdbcCourseSionDAO implements DAOInterface<CourseSession>{
         return lc;
     }
     
+    @Override
     public List<CourseSession> findSessionByInfos(String title,Date date,Location location){
         List<CourseSession> ls = new LinkedList<>();
         try {
