@@ -5,6 +5,7 @@ package fr.utbm.eformation.core.service;
 import java.sql.Date;
 
 import fr.utbm.eformation.core.entity.Client;
+import fr.utbm.eformation.core.entity.CourseSession;
 import fr.utbm.eformation.core.entity.Location;
 import fr.utbm.eformation.core.repository.ClientInterfaceDAO;
 import fr.utbm.eformation.core.repository.CourseSessionInterfaceDAO;
@@ -43,8 +44,11 @@ public class FormationService {
      * Get all sessions courses available
      * @return List of session
      */
-    public List getallFormations(){
+    public List getAllFormations(){
         return jcd.getListSession();
 
+    }
+    public CourseSession getCourseSession(int id){
+           return jcd.find(id);
     }
 }
