@@ -27,7 +27,8 @@ public class App0 {
         Location l3 = bdl.find(2);
         String title = "Développez";
         
-        Date d =  new Date("12/30/2015");
+        Date d;
+        d = new Date("12/30/2015");
   
         for (CourseSession cgi: bdcs.findSessionByInfos(null, d, null)){
             System.out.println(cgi);
