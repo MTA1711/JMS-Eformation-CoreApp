@@ -48,7 +48,12 @@ public class FormationService {
         return jcd.getListSession();
 
     }
+    /**
+     * Get course session details using an ID
+     * @param id
+     * @return 
+     */
     public CourseSession getCourseSession(int id){
-           return jcd.find(id);
+        return jcd.find(id);
     }
 }
