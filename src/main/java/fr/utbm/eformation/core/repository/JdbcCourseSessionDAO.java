@@ -293,7 +293,12 @@ public class JdbcCourseSessionDAO implements CourseSessionInterfaceDAO{
         }
         
         if (date != null){
-            s += " cs.START_DATE <= ? and ? <= cs.END_DATE ";
+            if(i==0){
+               s += "cs.START_DATE <= ? and cs.END_DATE >= ? ";
+            }
+            else{
+                s += " AND (cs.START_DATE <= ? and cs.END_DATE >= ? )";
+            }
             d = true;
             i++;
         }
