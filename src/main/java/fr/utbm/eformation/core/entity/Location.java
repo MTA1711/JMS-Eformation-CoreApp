@@ -1,10 +1,13 @@
 package fr.utbm.eformation.core.entity;
 
+import java.io.Serializable;
+
 /**
- *
+ * location of a course
  * @author java
  */
-public class Location {
+public class Location implements Serializable{
+    private static final long serialVersionUID = 1L;
     private int locationId;
     private String city;
 
