@@ -1,12 +1,13 @@
 package fr.utbm.eformation.core.entity;
 
-import java.util.List;
+import java.io.Serializable;
 
 /**
- *
+ * Represent a client who subcribes a course session
  * @author java
  */
-public class Client {
+public class Client implements Serializable{
+    private static final long serialVersionUID = 1L;
     private int idClient;
     private String lastName;
     private String firstName;

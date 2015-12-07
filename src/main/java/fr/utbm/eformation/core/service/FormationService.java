@@ -1,7 +1,5 @@
 package fr.utbm.eformation.core.service;
 
-
-
 import fr.utbm.eformation.core.entity.Client;
 import fr.utbm.eformation.core.entity.CourseSession;
 import fr.utbm.eformation.core.entity.Location;
@@ -50,12 +48,16 @@ public class FormationService {
      *
      * @return List of session
      */
-    public List getallFormations() {
+    public List getAllFormations(){
         return jcd.getListSession();
 
     }
-
-    public CourseSession getCourseSession(int id) {
+    /**
+     * Get course session details using an ID
+     * @param id
+     * @return 
+     */
+    public CourseSession getCourseSession(int id){
         return jcd.find(id);
     }
 }

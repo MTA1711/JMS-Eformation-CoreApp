@@ -1,10 +1,14 @@
 package fr.utbm.eformation.core.entity;
 
+import java.io.Serializable;
+
 /**
- *
+ * Represent a course
  * @author java
  */
-public class Course {
+public class Course implements Serializable{
+    private static final long serialVersionUID = 1L;
+    
     private String courseCode;
     private String title;
     private String resume;

@@ -1,14 +1,16 @@
 package fr.utbm.eformation.core.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
+ * session of a course
  * @author java
  */
-public class CourseSession {
+public class CourseSession implements Serializable{
+    private static final long serialVersionUID = 1L;
     private int courseSessionId;
     private Date startDate;
     private Date endDate;
